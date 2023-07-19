@@ -22,9 +22,9 @@ additional_build_steps:
     - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-8-x86_64-rpms.enabled=true"
   prepend_final:
     - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-8-x86_64-rpms.enabled=true"
-  prepend: |
+  prepend_base: |
     RUN whoami
     RUN cat /etc/os-release
-  append:
+  append_final:
     - RUN echo This is a post-install command!
     - RUN ls -la /etc
