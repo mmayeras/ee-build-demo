@@ -27,19 +27,19 @@ additional_build_steps:
   #https://access.redhat.com/solutions/7024259 
   prepend_builder:
     - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.enabled=true --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.sslcacert=/etc/rhsm-host/ca/redhat-uep.pem"
-    - ADD _build/certs/entitlement.pem _build/certs/entitlement-key.pem /etc/pki/entitlement-host/
+    - ADD _build/certs/entitlement.pem _build/certs/entitlement-key.pem /run/secrets/etc-pki-entitlement/
     - RUN ls /etc/pki/entitlement-host/ /etc/yum.repos.d/
     - RUN cat /etc/yum.repos.d/redhat.repo
   prepend_final:
     - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.enabled=true --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.sslcacert=/etc/rhsm-host/ca/redhat-uep.pem"
   prepend_base:
     - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.enabled=true --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.sslcacert=/etc/rhsm-host/ca/redhat-uep.pem"
-    - ADD _build/certs/entitlement.pem _build/certs/entitlement-key.pem /etc/pki/entitlement-host/
+    - ADD _build/certs/entitlement.pem _build/certs/entitlement-key.pem /run/secrets/etc-pki-entitlement
     - RUN ls /etc/pki/entitlement-host/ /etc/yum.repos.d/
     - RUN cat /etc/yum.repos.d/redhat.repo
   prepend_galaxy:
     - ENV PKGMGR_OPTS="--nodocs --setopt=install_weak_deps=0 --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.enabled=true --setopt=rhocp-4.12-for-rhel-9-x86_64-rpms.sslcacert=/etc/rhsm-host/ca/redhat-uep.pem"
-    - ADD _build/certs/entitlement.pem _build/certs/entitlement-key.pem /etc/pki/entitlement-host/
+    - ADD _build/certs/entitlement.pem _build/certs/entitlement-key.pem /run/secrets/etc-pki-entitlement
     - RUN ls /etc/pki/entitlement-host/ /etc/yum.repos.d/
     - RUN cat /etc/yum.repos.d/redhat.repo
   # append_final:
